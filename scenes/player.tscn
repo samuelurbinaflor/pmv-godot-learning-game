@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=3 uid="uid://bve1rq2c76k4c"]
 
 [ext_resource type="Texture2D" uid="uid://dj6ixxih73mao" path="res://assets/king/Idle.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://chb7n1plwqqlq" path="res://scenes/player.gd" id="1_d2wvv"]
+[ext_resource type="Script" uid="uid://chb7n1plwqqlq" path="res://scripts/player.gd" id="1_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://chrajl0ej4ya5" path="res://assets/king/Attack.png" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://2rmpdcb4b4a4" path="res://assets/king/Dead.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://jdex7mmv2x8h" path="res://assets/king/Door In.png" id="3_y4r1p"]
@@ -400,6 +400,7 @@ height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
 script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
