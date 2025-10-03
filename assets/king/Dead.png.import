@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnd22msw4va85"
-path="res://.godot/imported/Fall (78x58).png-8ffd36ddd40ef44e10ec15b7ba5f6208.ctex"
+uid="uid://2rmpdcb4b4a4"
+path="res://.godot/imported/Dead.png-90aa7457de83cad32c76dc7914e9a0b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/king/Fall (78x58).png"
-dest_files=["res://.godot/imported/Fall (78x58).png-8ffd36ddd40ef44e10ec15b7ba5f6208.ctex"]
+source_file="res://assets/king/Dead.png"
+dest_files=["res://.godot/imported/Dead.png-90aa7457de83cad32c76dc7914e9a0b2.ctex"]
 
 [params]
 

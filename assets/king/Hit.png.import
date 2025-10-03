@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dim5ckiak82yy"
-path="res://.godot/imported/Door Out (78x58).png-36ef0cb107aa6cd129f5b7f5e654a33a.ctex"
+uid="uid://y77q7l0pt1cp"
+path="res://.godot/imported/Hit.png-69ab5fced7cfe900bad0a5625aa3340b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/king/Door Out (78x58).png"
-dest_files=["res://.godot/imported/Door Out (78x58).png-36ef0cb107aa6cd129f5b7f5e654a33a.ctex"]
+source_file="res://assets/king/Hit.png"
+dest_files=["res://.godot/imported/Hit.png-69ab5fced7cfe900bad0a5625aa3340b.ctex"]
 
 [params]
 
