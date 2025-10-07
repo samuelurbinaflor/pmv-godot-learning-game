@@ -305,7 +305,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"ground",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -400,14 +400,14 @@ height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_mask = 122
 script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"hit"
+animation = &"ground"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
