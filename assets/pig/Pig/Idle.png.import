@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2glt870jj4v"
-path="res://.godot/imported/Run (34x28).png-703f83166b00ae72bef6c7a874602b0f.ctex"
+uid="uid://baw21jmffruuo"
+path="res://.godot/imported/Idle.png-6db21a500c83916c1a6d81b676c8c21e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig/Run (34x28).png"
-dest_files=["res://.godot/imported/Run (34x28).png-703f83166b00ae72bef6c7a874602b0f.ctex"]
+source_file="res://assets/pig/Pig/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-6db21a500c83916c1a6d81b676c8c21e.ctex"]
 
 [params]
 

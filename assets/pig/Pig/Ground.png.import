@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baw21jmffruuo"
-path="res://.godot/imported/Idle (34x28).png-5e780a80c887f9f516c03aa328de50ed.ctex"
+uid="uid://byo8b62e2uf3k"
+path="res://.godot/imported/Ground.png-4aa941557951ca7851021c5c8e495aba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig/Idle (34x28).png"
-dest_files=["res://.godot/imported/Idle (34x28).png-5e780a80c887f9f516c03aa328de50ed.ctex"]
+source_file="res://assets/pig/Pig/Ground.png"
+dest_files=["res://.godot/imported/Ground.png-4aa941557951ca7851021c5c8e495aba.ctex"]
 
 [params]
 

@@ -77,3 +77,11 @@ func attack() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "attack":
 		is_attacking = false
+
+
+# === Damage ===
+func die():
+	alive = false
+	print("Jugador muerto")
+	animated_sprite.play("dead")
+	

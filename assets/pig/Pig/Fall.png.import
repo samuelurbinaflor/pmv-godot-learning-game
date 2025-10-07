@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy3suk2ur12n7"
-path="res://.godot/imported/Hit (34x28).png-45b0f43b5a75a9de04f57c7665137ebd.ctex"
+uid="uid://bo5nm4474wn2k"
+path="res://.godot/imported/Fall.png-9528046800b1ddfa7de6cd977daccd92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig/Hit (34x28).png"
-dest_files=["res://.godot/imported/Hit (34x28).png-45b0f43b5a75a9de04f57c7665137ebd.ctex"]
+source_file="res://assets/pig/Pig/Fall.png"
+dest_files=["res://.godot/imported/Fall.png-9528046800b1ddfa7de6cd977daccd92.ctex"]
 
 [params]
 
