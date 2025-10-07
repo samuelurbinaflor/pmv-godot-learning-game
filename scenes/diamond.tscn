@@ -575,7 +575,7 @@ animations = [{
 radius = 6.0
 
 [node name="diamond" type="Area2D"]
-collision_mask = 2
+collision_layer = 64
 script = ExtResource("1_okr8r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
