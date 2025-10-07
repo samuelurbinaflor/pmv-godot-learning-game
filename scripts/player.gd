@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	move_and_slide()
 	
-	# Animaciones (solo si no está atacando)
+
 	if not is_attacking:
 		if is_on_floor():
 			animated_sprite.play("idle" if velocity.x == 0 else "run")
@@ -59,7 +59,7 @@ func apply_gravity(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_attacking:
 		velocity.y = JUMP_VELOCITY
 		animated_sprite.play("jump")
 
