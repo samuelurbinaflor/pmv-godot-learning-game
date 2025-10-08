@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbn14k4w5kkow"
-path="res://.godot/imported/Match On (26x18).png-f44e25f749e713405462ba583b998c2f.ctex"
+uid="uid://bfa7lghdrcdcv"
+path="res://.godot/imported/Looking Out.png-c8a767b6f6958790d492cfaae634d5e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig With a Match/Match On (26x18).png"
-dest_files=["res://.godot/imported/Match On (26x18).png-f44e25f749e713405462ba583b998c2f.ctex"]
+source_file="res://assets/pig/Pig Hide in the Box/Looking Out.png"
+dest_files=["res://.godot/imported/Looking Out.png-c8a767b6f6958790d492cfaae634d5e8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfa7lghdrcdcv"
-path="res://.godot/imported/Looking Out (26x20).png-cfb0efac67506a233e598fd87c2a73eb.ctex"
+uid="uid://b42gdrcudnvbx"
+path="res://.godot/imported/Idle.png-a540a10295744e0287e78693095c076d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Hide in the Box/Looking Out (26x20).png"
-dest_files=["res://.godot/imported/Looking Out (26x20).png-cfb0efac67506a233e598fd87c2a73eb.ctex"]
+source_file="res://assets/pig/Pig Throwing a Box/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-a540a10295744e0287e78693095c076d.ctex"]
 
 [params]
 

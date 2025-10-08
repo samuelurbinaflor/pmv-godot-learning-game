@@ -316,7 +316,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hit",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -409,7 +409,7 @@ script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"attack"
+animation = &"hit"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -419,7 +419,8 @@ shape = SubResource("CapsuleShape2D_y4r1p")
 [node name="Attack_Hitbox" type="Area2D" parent="."]
 position = Vector2(8, -4)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Hitbox"]
 position = Vector2(20, 2)
@@ -427,3 +428,4 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_d2wvv")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Attack_Hitbox" to="." method="_on_attack_hitbox_area_entered"]

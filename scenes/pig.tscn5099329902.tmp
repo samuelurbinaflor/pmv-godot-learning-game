@@ -1,10 +1,60 @@
 [gd_scene load_steps=30 format=3 uid="uid://bs8jw2wy1bnbc"]
 
-[ext_resource type="Script" uid="uid://cy5105yavs6sc" path="res://scripts/pig.gd" id="1_7e1yb"]
 [ext_resource type="Texture2D" uid="uid://dylkq5gel7eb1" path="res://assets/pig/Pig/Attack.png" id="1_ct3s0"]
 [ext_resource type="Texture2D" uid="uid://baw21jmffruuo" path="res://assets/pig/Pig/Idle.png" id="1_sq5kf"]
 [ext_resource type="Texture2D" uid="uid://d2glt870jj4v" path="res://assets/pig/Pig/Run.png" id="2_4a8uq"]
 [ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="4_ct3s0"]
+
+[sub_resource type="GDScript" id="GDScript_sq5kf"]
+script/source = "# Enemigo.gd
+extends Node2D
+
+const SPEED = 50
+const MAX_HEALTH = 2
+
+var direction = 1
+var current_health := MAX_HEALTH
+var alive := true
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+
+func _process(delta: float) -> void:
+	if ray_cast_right.is_colliding():
+		direction = -1
+		animated_sprite.flip_h = false
+		
+	if ray_cast_left.is_colliding():
+		direction = 1
+		animated_sprite.flip_h = true
+		
+	if direction != 0:
+		animated_sprite.play(\"Run\")
+		
+	position.x += direction * SPEED * delta
+
+## === Damage ===
+#func hit(amount: int):
+	#current_health -= amount
+	#if current_health <= 0:
+		#die()
+		#
+#func die():
+	#alive = false
+	#animated_sprite.play(\"dead\")
+	
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	Engine.time_scale = 0.5
+	print(body.get_groups())
+	body.hit(1)
+
+
+func _on_timer_timeout() -> void:
+	Engine.time_scale = 1
+	get_tree().reload_current_scene()
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1yuw"]
 atlas = ExtResource("1_ct3s0")
@@ -182,7 +232,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="pig" type="Node2D" groups=["enemies"]]
-script = ExtResource("1_7e1yb")
+script = SubResource("GDScript_sq5kf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_crx00")

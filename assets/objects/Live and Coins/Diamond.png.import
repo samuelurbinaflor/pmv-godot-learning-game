@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qo15c7qypac5"
-path="res://.godot/imported/Ground (26x20).png-14c26ccf6972eda984f49b52ea45b662.ctex"
+uid="uid://cqswjxiuqce61"
+path="res://.godot/imported/Diamond.png-3d28de4c277936624a393f1837340f4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Hide in the Box/Ground (26x20).png"
-dest_files=["res://.godot/imported/Ground (26x20).png-14c26ccf6972eda984f49b52ea45b662.ctex"]
+source_file="res://assets/objects/Live and Coins/Diamond.png"
+dest_files=["res://.godot/imported/Diamond.png-3d28de4c277936624a393f1837340f4c.ctex"]
 
 [params]
 

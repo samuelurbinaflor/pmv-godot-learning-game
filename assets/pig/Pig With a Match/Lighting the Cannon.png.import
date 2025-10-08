@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp4wit4ocov4r"
-path="res://.godot/imported/Run (26x30).png-a770b5b17646d9d712110c633dab0dbc.ctex"
+uid="uid://cqhglldsha880"
+path="res://.godot/imported/Lighting the Cannon.png-06a167f94ce783f9d0853e109ade46f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Throwing a Box/Run (26x30).png"
-dest_files=["res://.godot/imported/Run (26x30).png-a770b5b17646d9d712110c633dab0dbc.ctex"]
+source_file="res://assets/pig/Pig With a Match/Lighting the Cannon.png"
+dest_files=["res://.godot/imported/Lighting the Cannon.png-06a167f94ce783f9d0853e109ade46f9.ctex"]
 
 [params]
 

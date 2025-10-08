@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cidm6jxouobqd"
-path="res://.godot/imported/Run (26x26).png-aa2952f958a87695795461d22b5a76af.ctex"
+uid="uid://3go053lkcu8l"
+path="res://.godot/imported/Jump Anticipation.png-e5f92e47eae4971c1509fe30b1b7cb6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Thowing a Bomb/Run (26x26).png"
-dest_files=["res://.godot/imported/Run (26x26).png-aa2952f958a87695795461d22b5a76af.ctex"]
+source_file="res://assets/pig/Pig Hide in the Box/Jump Anticipation.png"
+dest_files=["res://.godot/imported/Jump Anticipation.png-e5f92e47eae4971c1509fe30b1b7cb6f.ctex"]
 
 [params]
 

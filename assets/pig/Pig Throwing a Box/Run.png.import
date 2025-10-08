@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5yshu0peiqtu"
-path="res://.godot/imported/Picking Bomb (26x26).png-a4f1ddb8e139ce30aaa3b32a0b9b732a.ctex"
+uid="uid://cp4wit4ocov4r"
+path="res://.godot/imported/Run.png-fcc9440bef4e50fc7eec12e077589bf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Thowing a Bomb/Picking Bomb (26x26).png"
-dest_files=["res://.godot/imported/Picking Bomb (26x26).png-a4f1ddb8e139ce30aaa3b32a0b9b732a.ctex"]
+source_file="res://assets/pig/Pig Throwing a Box/Run.png"
+dest_files=["res://.godot/imported/Run.png-fcc9440bef4e50fc7eec12e077589bf0.ctex"]
 
 [params]
 

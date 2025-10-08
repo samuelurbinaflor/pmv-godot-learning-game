@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyi4615fjjg2x"]
+
+[ext_resource type="Texture2D" uid="uid://bfxu5olelv4t6" path="res://assets/objects/Live and Coins/Live Bar.png" id="1_5p55f"]
+[ext_resource type="Texture2D" uid="uid://cqswjxiuqce61" path="res://assets/objects/Live and Coins/Diamond.png" id="2_r67kn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 34.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_5p55f")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_r67kn")
+stretch_mode = 5

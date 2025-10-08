@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daknkepgc1e1v"
-path="res://.godot/imported/Fall (26x20).png-aee5952326fd963ea61c830be54793bb.ctex"
+uid="uid://x3cfx5q7qqi8"
+path="res://.godot/imported/Throwing Bomb.png-54e761a8a4a5e8130c4f61617219de96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Hide in the Box/Fall (26x20).png"
-dest_files=["res://.godot/imported/Fall (26x20).png-aee5952326fd963ea61c830be54793bb.ctex"]
+source_file="res://assets/pig/Pig Throwing a Bomb/Throwing Bomb.png"
+dest_files=["res://.godot/imported/Throwing Bomb.png-54e761a8a4a5e8130c4f61617219de96.ctex"]
 
 [params]
 

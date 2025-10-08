@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b42gdrcudnvbx"
-path="res://.godot/imported/Idle (26x30).png-a024fc7997e9369dcc577f5a2ad7fc20.ctex"
+uid="uid://cidm6jxouobqd"
+path="res://.godot/imported/Run.png-482f11aa9d676ab80429597866f4e41d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig Throwing a Box/Idle (26x30).png"
-dest_files=["res://.godot/imported/Idle (26x30).png-a024fc7997e9369dcc577f5a2ad7fc20.ctex"]
+source_file="res://assets/pig/Pig Throwing a Bomb/Run.png"
+dest_files=["res://.godot/imported/Run.png-482f11aa9d676ab80429597866f4e41d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x22kb0ben73h"
-path="res://.godot/imported/Lighting the Match (26x18).png-dfda4eacc3c7f29286255c294583da18.ctex"
+uid="uid://j136qkrynmbv"
+path="res://.godot/imported/Jump.png-e6b405cc4706a3841ade2e628e865d22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pig/Pig With a Match/Lighting the Match (26x18).png"
-dest_files=["res://.godot/imported/Lighting the Match (26x18).png-dfda4eacc3c7f29286255c294583da18.ctex"]
+source_file="res://assets/pig/Pig Hide in the Box/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-e6b405cc4706a3841ade2e628e865d22.ctex"]
 
 [params]
 

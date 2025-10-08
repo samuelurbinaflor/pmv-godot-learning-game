@@ -1,10 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://bs8jw2wy1bnbc"]
 
-[ext_resource type="Script" uid="uid://cy5105yavs6sc" path="res://scripts/pig.gd" id="1_7e1yb"]
 [ext_resource type="Texture2D" uid="uid://dylkq5gel7eb1" path="res://assets/pig/Pig/Attack.png" id="1_ct3s0"]
 [ext_resource type="Texture2D" uid="uid://baw21jmffruuo" path="res://assets/pig/Pig/Idle.png" id="1_sq5kf"]
 [ext_resource type="Texture2D" uid="uid://d2glt870jj4v" path="res://assets/pig/Pig/Run.png" id="2_4a8uq"]
 [ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="4_ct3s0"]
+
+[sub_resource type="GDScript" id="GDScript_sq5kf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1yuw"]
 atlas = ExtResource("1_ct3s0")
@@ -182,7 +183,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="pig" type="Node2D" groups=["enemies"]]
-script = ExtResource("1_7e1yb")
+script = SubResource("GDScript_sq5kf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_crx00")

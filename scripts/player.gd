@@ -15,6 +15,7 @@ var is_attacking := false
 # === REFS ===
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox: Area2D = $Attack_Hitbox
+@onready var game: Node2D = $".."
 
 func _ready():
 	attack_hitbox.monitoring = false
@@ -80,8 +81,18 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 # === Damage ===
+func hit(amount: int):
+	if alive:
+		current_health -= amount
+		print("-1 de vida")
+		print("Vida total ", current_health)
+		animated_sprite.play("hit")
+	
+	if current_health <= 0:
+		die()
+		
 func die():
 	alive = false
 	print("Jugador muerto")
 	animated_sprite.play("dead")
-	
+	get_tree().reload_current_scene()

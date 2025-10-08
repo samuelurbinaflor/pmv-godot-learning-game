@@ -1,10 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bs8jw2wy1bnbc"]
+[gd_scene load_steps=29 format=3 uid="uid://bs8jw2wy1bnbc"]
 
 [ext_resource type="Script" uid="uid://cy5105yavs6sc" path="res://scripts/pig.gd" id="1_7e1yb"]
 [ext_resource type="Texture2D" uid="uid://dylkq5gel7eb1" path="res://assets/pig/Pig/Attack.png" id="1_ct3s0"]
 [ext_resource type="Texture2D" uid="uid://baw21jmffruuo" path="res://assets/pig/Pig/Idle.png" id="1_sq5kf"]
 [ext_resource type="Texture2D" uid="uid://d2glt870jj4v" path="res://assets/pig/Pig/Run.png" id="2_4a8uq"]
-[ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="4_ct3s0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1yuw"]
 atlas = ExtResource("1_ct3s0")
@@ -198,7 +197,6 @@ target_position = Vector2(-8, 0)
 collision_mask = 8
 
 [node name="hitbox" type="Area2D" parent="."]
-script = ExtResource("4_ct3s0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_j740r")
