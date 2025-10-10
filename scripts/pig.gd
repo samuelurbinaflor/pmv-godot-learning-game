@@ -26,17 +26,42 @@ func _process(delta: float) -> void:
 		
 	position.x += direction * SPEED * delta
 
-## === Damage ===
-#func hit(amount: int):
-	#current_health -= amount
-	#if current_health <= 0:
-		#die()
-		#
-#func die():
-	#alive = false
-	#animated_sprite.play("dead")
+# === DAMAGE ===
+func hit(amount: int):
+	if not alive:
+		return
 	
+	current_health -= amount
+	blink_effect()
+	
+	if current_health <= 0:
+		die()
+		
+func die():
+	alive = false
+	direction = 0
+	ray_cast_left.enabled = false
+	ray_cast_right.enabled = false
+	
+	animated_sprite.play("dead")
+
+
+
+
+func _on_death_animation_finished(anim_name: String):
+	if anim_name == "dead":
+		queue_free()
+	
+func blink_effect():
+	# Parpadea un poco mientras es invulnerable
+	for i in range(3):
+		modulate = Color(1, 1, 1, 0.3) # transparente
+		await get_tree().create_timer(0.1).timeout
+		modulate = Color(1, 1, 1, 1) # visible
+		await get_tree().create_timer(0.1).timeout
+
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if "player" in body.get_groups():
+		print("pum")
 		body.hit(1)

@@ -229,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4r5pv")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -313,10 +313,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4otl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -409,8 +415,10 @@ script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"hit"
+animation = &"attack"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -419,7 +427,7 @@ shape = SubResource("CapsuleShape2D_y4r1p")
 [node name="Attack_Hitbox" type="Area2D" parent="."]
 position = Vector2(8, -4)
 collision_layer = 4
-collision_mask = 16
+collision_mask = 2
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Hitbox"]
