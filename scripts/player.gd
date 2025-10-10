@@ -107,9 +107,6 @@ func hit(amount: int):
 		
 	else:
 		current_health -= amount
-		print("-",amount,"dd de vida")
-		print("Vida total ", current_health)
-		
 		can_take_damage = false
 		
 		if current_health <= 0:
@@ -122,7 +119,6 @@ func hit(amount: int):
 	
 func die():
 	alive = false
-	print("Jugador muerto")
 	animated_sprite.play("dead")
 	await animated_sprite.animation_finished
 	get_tree().reload_current_scene()
