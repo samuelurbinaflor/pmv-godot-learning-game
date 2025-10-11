@@ -2,7 +2,7 @@
 extends Node2D
 
 const SPEED = 50
-const MAX_HEALTH = 50
+const MAX_HEALTH = 2
 
 var direction = 1
 var current_health := MAX_HEALTH

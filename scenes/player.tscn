@@ -424,16 +424,24 @@ frame_progress = 1.0
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_y4r1p")
 
-[node name="Attack_Hitbox" type="Area2D" parent="."]
+[node name="attack_hitbox" type="Area2D" parent="."]
 position = Vector2(8, -4)
 collision_layer = 4
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hitbox"]
 position = Vector2(20, 2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_d2wvv")
 
+[node name="diamond_hitbox" type="Area2D" parent="."]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="diamond_hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_y4r1p")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="area_entered" from="Attack_Hitbox" to="." method="_on_attack_hitbox_area_entered"]
+[connection signal="area_entered" from="attack_hitbox" to="." method="_on_attack_hitbox_area_entered"]
+[connection signal="area_entered" from="diamond_hitbox" to="." method="_on_diamond_hitbox_area_entered"]

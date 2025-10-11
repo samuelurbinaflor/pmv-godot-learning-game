@@ -15,14 +15,17 @@ var attack_position := Vector2(8,-2)
 var cooldown := 0.8 #invulnerability time
 var can_take_damage := true
 var facing_left := false 
+var diamonds := 0
 
 # === REFS ===
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_hitbox: Area2D = $Attack_Hitbox
+@onready var attack_hitbox: Area2D = $attack_hitbox
 @onready var game: Node2D = $".."
+@onready var diamond_hitbox: Area2D = $diamond_hitbox
 
 func _ready():
 	attack_hitbox.monitoring = false
+	diamond_hitbox.monitoring = true
 
 func _physics_process(delta: float) -> void:
 	if not alive:
@@ -109,7 +112,7 @@ func flip_attack_hitbox():
 	else:
 		attack_hitbox.position = attack_position
 
-# === DAMAGE ===
+ # === DAMAGE ===
 func hit(amount: int):
 	if not alive or not can_take_damage:
 		return
@@ -118,6 +121,7 @@ func hit(amount: int):
 		current_health -= amount
 		can_take_damage = false
 		
+		
 		if current_health <= 0:
 			await die()
 		else:
@@ -125,6 +129,7 @@ func hit(amount: int):
 			await get_tree().create_timer(cooldown).timeout
 			can_take_damage = true
 		
+
 	
 func die():
 	alive = false
@@ -139,3 +144,10 @@ func blink_effect():
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1, 1, 1, 1) # visible
 		await get_tree().create_timer(0.1).timeout
+		
+# === DIAMONDS === 
+func _on_diamond_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("diamonds"):
+		diamonds += 1
+		area.queue_free()  # elimina el diamante de la escena
+		print("Diamantes: ", diamonds)
