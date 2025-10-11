@@ -11,6 +11,7 @@ const ATTACK_DURATION := 0.2
 var current_health := MAX_HEALTH
 var alive := true
 var is_attacking := false
+var attack_position := Vector2(8,-2)
 var cooldown := 0.8 #invulnerability time
 var can_take_damage := true
 var facing_left := false 
@@ -61,6 +62,7 @@ func handle_movement() -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	animated_sprite.flip_h = facing_left
+	flip_attack_hitbox()
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -87,7 +89,6 @@ func attack() -> void:
 	
 	await get_tree().create_timer(ATTACK_DELAY).timeout
 	attack_hitbox.monitoring = true
-	print("HITBOX ACTIVADA:", attack_hitbox.monitoring)
 
 	
 	await get_tree().create_timer(ATTACK_DURATION).timeout
@@ -102,7 +103,11 @@ func _on_attack_hitbox_area_entered(area: Area2D) -> void:
 	if enemy_node.is_in_group("enemies"):
 		enemy_node.hit(1)
 	
-
+func flip_attack_hitbox():
+	if facing_left:
+		attack_hitbox.position = Vector2(-48, attack_position.y)
+	else:
+		attack_hitbox.position = attack_position
 
 # === DAMAGE ===
 func hit(amount: int):

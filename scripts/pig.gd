@@ -47,13 +47,6 @@ func die():
 
 	animated_sprite.play("dead")
 
-
-
-
-func _on_death_animation_finished(anim_name: String):
-	if anim_name == "dead":
-		print("aqui llega?")
-		queue_free()
 	
 func blink_effect():
 	# Parpadea un poco mientras es invulnerable
@@ -66,5 +59,4 @@ func blink_effect():
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if "player" in body.get_groups():
-		print("pum")
 		body.hit(1)
