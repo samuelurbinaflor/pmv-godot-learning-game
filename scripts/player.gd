@@ -152,12 +152,11 @@ func blink_effect():
 func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("diamonds"):
 		diamonds += 1
+		hud.update_diamonds(diamonds)
 		area.queue_free()  # elimina el diamante de la escena
-		print("Diamantes: ", diamonds)
 		
 	if area.is_in_group("hearts"):
 		if current_health < MAX_HEALTH:
 			current_health += 1
 			hud.update_hearts(current_health)
 			area.queue_free()  # elimina el diamante de la escena
-			print("vida ", current_health)
