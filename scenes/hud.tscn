@@ -87,35 +87,34 @@ script = ExtResource("1_5ysmq")
 
 [node name="LiveBar" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 36.0
-offset_right = 245.0
-offset_bottom = 146.0
+offset_right = 66.0
+offset_bottom = 34.0
+scale = Vector2(3, 3)
 texture = ExtResource("2_6fi6k")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 91.666664
-offset_bottom = 55.0
+offset_right = 172.0
+offset_bottom = 76.0
 alignment = 1
 
 [node name="Heart1" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
-position = Vector2(113.00001, 93.00001)
-scale = Vector2(2.0625002, 1.9605768)
+position = Vector2(66, 54)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Heart2" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
-position = Vector2(145, 93)
-scale = Vector2(2.0625002, 1.9605768)
+position = Vector2(99, 54)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Heart3" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
-position = Vector2(179, 93)
-scale = Vector2(2.0625002, 1.9605768)
+position = Vector2(132, 54)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"

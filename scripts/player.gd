@@ -156,7 +156,8 @@ func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 		print("Diamantes: ", diamonds)
 		
 	if area.is_in_group("hearts"):
-		current_health += 1
-		hud.update_hearts(current_health)
-		area.queue_free()  # elimina el diamante de la escena
-		print("vida ", current_health)
+		if current_health < MAX_HEALTH:
+			current_health += 1
+			hud.update_hearts(current_health)
+			area.queue_free()  # elimina el diamante de la escena
+			print("vida ", current_health)
