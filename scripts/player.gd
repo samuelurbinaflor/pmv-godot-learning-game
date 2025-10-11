@@ -101,7 +101,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_attack_hitbox_area_entered(area: Area2D) -> void:
 	var enemy_node = area.get_parent()
 	if enemy_node.is_in_group("enemies"):
-		enemy_node.hit(1)
+		enemy_node.hit(1, Vector2(facing_left,0))
 	
 func flip_attack_hitbox():
 	if facing_left:
