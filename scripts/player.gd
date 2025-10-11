@@ -22,6 +22,8 @@ var diamonds := 0
 @onready var attack_hitbox: Area2D = $attack_hitbox
 @onready var game: Node2D = $".."
 @onready var diamond_hitbox: Area2D = $diamond_hitbox
+@onready var hud = get_parent().get_node("CanvasLayer/HUD")
+
 
 func _ready():
 	attack_hitbox.monitoring = false
@@ -119,6 +121,7 @@ func hit(amount: int):
 		
 	else:
 		current_health -= amount
+		hud.update_hearts(current_health)
 		can_take_damage = false
 		
 		

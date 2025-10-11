@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://di5xn7urwn607"]
+[gd_scene load_steps=14 format=4 uid="uid://di5xn7urwn607"]
 
-[ext_resource type="Script" uid="uid://c1h3dehj0raif" path="res://scripts/game.gd" id="1_0tnpc"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bkn0wf0b2bxe2" path="res://assets/map/tiles/Decorations (32x32).png" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cxpkil7yk0g4l" path="res://assets/map/tiles/Terrain (32x32).png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bve1rq2c76k4c" path="res://scenes/player.tscn" id="3_lbhrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://becg778vwfjx6" path="res://scenes/platform_owt_small.tscn" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bs8jw2wy1bnbc" path="res://scenes/pig.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dluurk0fnfm6y" path="res://scenes/killzone.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b2mp1kntmwqqm" path="res://scenes/hud.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_lnu2h")
@@ -691,3 +692,7 @@ position = Vector2(320, -35)
 
 [node name="platform_owt_small2" parent="Platforms" instance=ExtResource("7_0tnpc")]
 position = Vector2(320, -66)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("9_0tnpc")]
