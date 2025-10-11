@@ -13,6 +13,7 @@ var alive := true
 var is_attacking := false
 var cooldown := 0.8 #invulnerability time
 var can_take_damage := true
+var facing_left := false 
 
 # === REFS ===
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -55,8 +56,11 @@ func handle_movement() -> void:
 	# Movimiento
 	if direction != 0:
 		velocity.x = direction * SPEED
+		facing_left = direction < 0
+		animated_sprite.flip_h = facing_left
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animated_sprite.flip_h = facing_left
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
