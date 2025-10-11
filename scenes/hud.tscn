@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2mp1kntmwqqm"]
+[gd_scene load_steps=14 format=3 uid="uid://b2mp1kntmwqqm"]
 
 [ext_resource type="Script" uid="uid://ceyc75n5320xw" path="res://HUD.gd" id="1_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://bfxu5olelv4t6" path="res://assets/objects/Live and Coins/Live Bar.png" id="2_6fi6k"]
@@ -14,25 +14,9 @@ region = Rect2(0, 0, 14, 14)
 atlas = ExtResource("4_uo2fv")
 region = Rect2(14, 0, 14, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0i1j5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo2fv"]
 atlas = ExtResource("3_uo2fv")
-region = Rect2(0, 0, 14, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mphia"]
-atlas = ExtResource("5_047uy")
 region = Rect2(0, 0, 14, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0m4u7"]
-atlas = ExtResource("5_047uy")
-region = Rect2(14, 0, 14, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apjy4"]
-atlas = ExtResource("5_047uy")
-region = Rect2(28, 0, 14, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5n1hp"]
-atlas = ExtResource("5_047uy")
-region = Rect2(42, 0, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eld54"]
 atlas = ExtResource("5_047uy")
@@ -58,6 +42,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hd3ao")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"hit",
@@ -65,25 +52,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0i1j5")
+"texture": SubResource("AtlasTexture_uo2fv")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mphia")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0m4u7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apjy4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5n1hp")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eld54")
 }, {
@@ -96,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uxdf7")
 }],
-"loop": true,
+"loop": false,
 "name": &"up",
 "speed": 5.0
 }]
@@ -112,8 +87,10 @@ script = ExtResource("1_5ysmq")
 
 [node name="LiveBar" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 90.75
-offset_bottom = 55.0
+offset_left = 45.0
+offset_top = 36.0
+offset_right = 245.0
+offset_bottom = 146.0
 texture = ExtResource("2_6fi6k")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="."]
@@ -122,23 +99,23 @@ offset_right = 91.666664
 offset_bottom = 55.0
 alignment = 1
 
-[node name="Heart1" type="AnimatedSprite2D" parent="HeartsContainer"]
-position = Vector2(31, 28)
-scale = Vector2(1.0714285, 1.0384616)
+[node name="Heart1" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
+position = Vector2(113.00001, 93.00001)
+scale = Vector2(2.0625002, 1.9605768)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Heart2" type="AnimatedSprite2D" parent="HeartsContainer"]
-position = Vector2(46, 28)
-scale = Vector2(1.0714285, 1.0384616)
+[node name="Heart2" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
+position = Vector2(145, 93)
+scale = Vector2(2.0625002, 1.9605768)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Heart3" type="AnimatedSprite2D" parent="HeartsContainer"]
-position = Vector2(61, 28)
-scale = Vector2(1.0714285, 1.0384616)
+[node name="Heart3" type="AnimatedSprite2D" parent="HeartsContainer" groups=["hearts"]]
+position = Vector2(179, 93)
+scale = Vector2(2.0625002, 1.9605768)
 sprite_frames = SubResource("SpriteFrames_5357l")
 animation = &"idle"
 autoplay = "idle"

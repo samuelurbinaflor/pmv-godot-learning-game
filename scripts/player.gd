@@ -21,13 +21,13 @@ var diamonds := 0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox: Area2D = $attack_hitbox
 @onready var game: Node2D = $".."
-@onready var diamond_hitbox: Area2D = $diamond_hitbox
 @onready var hud = get_parent().get_node("CanvasLayer/HUD")
+@onready var collect_hitbox: Area2D = $collect_hitbox
 
 
 func _ready():
 	attack_hitbox.monitoring = false
-	diamond_hitbox.monitoring = true
+	collect_hitbox.monitoring = true
 
 func _physics_process(delta: float) -> void:
 	if not alive:
@@ -149,8 +149,14 @@ func blink_effect():
 		await get_tree().create_timer(0.1).timeout
 		
 # === DIAMONDS === 
-func _on_diamond_hitbox_area_entered(area: Area2D) -> void:
+func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("diamonds"):
 		diamonds += 1
 		area.queue_free()  # elimina el diamante de la escena
 		print("Diamantes: ", diamonds)
+		
+	if area.is_in_group("hearts"):
+		current_health += 1
+		hud.update_hearts(current_health)
+		area.queue_free()  # elimina el diamante de la escena
+		print("vida ", current_health)

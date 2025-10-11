@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjonvfwlds7do"]
+
+[ext_resource type="Texture2D" uid="uid://vmramf4r7cxm" path="res://assets/objects/Live and Coins/Big Heart Idle (18x14).png" id="1_v30as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
+atlas = ExtResource("1_v30as")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgnv"]
+atlas = ExtResource("1_v30as")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txm48"]
+atlas = ExtResource("1_v30as")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nnyc"]
+atlas = ExtResource("1_v30as")
+region = Rect2(42, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mtg8"]
+atlas = ExtResource("1_v30as")
+region = Rect2(56, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u10h0"]
+atlas = ExtResource("1_v30as")
+region = Rect2(70, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oquu7"]
+atlas = ExtResource("1_v30as")
+region = Rect2(84, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fb81"]
+atlas = ExtResource("1_v30as")
+region = Rect2(98, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj202"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txm48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nnyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mtg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u10h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oquu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fb81")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0uc88"]
+radius = 5.0
+
+[node name="Heart" type="Area2D" groups=["hearts"]]
+collision_layer = 64
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uj202")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.8067515
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["hearts"]]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_0uc88")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://di5xn7urwn607"]
+[gd_scene load_steps=15 format=4 uid="uid://di5xn7urwn607"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bkn0wf0b2bxe2" path="res://assets/map/tiles/Decorations (32x32).png" id="1_lnu2h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8jw2wy1bnbc" path="res://scenes/pig.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dluurk0fnfm6y" path="res://scenes/killzone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b2mp1kntmwqqm" path="res://scenes/hud.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cjonvfwlds7do" path="res://scenes/heart.tscn" id="9_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_lnu2h")
@@ -674,17 +675,6 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="Pig" parent="." instance=ExtResource("7_gee14")]
 position = Vector2(256, 41)
 
-[node name="Diamonds" type="Node" parent="."]
-
-[node name="diamond" parent="Diamonds" instance=ExtResource("5_iywne")]
-position = Vector2(82, -15)
-
-[node name="diamond2" parent="Diamonds" instance=ExtResource("5_iywne")]
-position = Vector2(320, -49)
-
-[node name="diamond3" parent="Diamonds" instance=ExtResource("5_iywne")]
-position = Vector2(268, -130)
-
 [node name="Platforms" type="Node" parent="."]
 
 [node name="platform_owt_small" parent="Platforms" instance=ExtResource("7_0tnpc")]
@@ -696,3 +686,16 @@ position = Vector2(320, -66)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("9_0tnpc")]
+
+[node name="Hearts" type="Node" parent="."]
+
+[node name="Heart" parent="Hearts" instance=ExtResource("9_vtaks")]
+position = Vector2(272, -128)
+
+[node name="Diamonds" type="Node" parent="."]
+
+[node name="diamond" parent="Diamonds" instance=ExtResource("5_iywne")]
+position = Vector2(82, -15)
+
+[node name="diamond2" parent="Diamonds" instance=ExtResource("5_iywne")]
+position = Vector2(320, -49)
