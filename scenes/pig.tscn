@@ -97,19 +97,19 @@ region = Rect2(115, 0, 23, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjtmk"]
 atlas = ExtResource("5_bnrkt")
-region = Rect2(0, 0, 34, 28)
+region = Rect2(0, 0, 50, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7tyu"]
 atlas = ExtResource("5_bnrkt")
-region = Rect2(34, 0, 34, 28)
+region = Rect2(50, 0, 50, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkd2u"]
 atlas = ExtResource("5_bnrkt")
-region = Rect2(68, 0, 34, 28)
+region = Rect2(100, 0, 50, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbkbg"]
 atlas = ExtResource("5_bnrkt")
-region = Rect2(102, 0, 34, 28)
+region = Rect2(150, 0, 50, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_crx00"]
 animations = [{
@@ -222,6 +222,8 @@ script = ExtResource("1_7e1yb")
 sprite_frames = SubResource("SpriteFrames_crx00")
 animation = &"dead"
 autoplay = "Idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)

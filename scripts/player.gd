@@ -57,10 +57,10 @@ func handle_movement() -> void:
 	if direction != 0:
 		velocity.x = direction * SPEED
 		facing_left = direction < 0
-		animated_sprite.flip_h = facing_left
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite.flip_h = facing_left
+	
+	animated_sprite.flip_h = facing_left
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
