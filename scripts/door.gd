@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var _player_near := false  # para saber si el jugador está cerca
-@export var wait_time: float = 3.0
+@export var wait_time: float = 4.0
 
 
 # Called when the node enters the scene tree for the first time.

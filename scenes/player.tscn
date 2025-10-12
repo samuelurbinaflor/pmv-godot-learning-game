@@ -42,35 +42,35 @@ region = Rect2(234, 0, 78, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(0, 0, 78, 58)
+region = Rect2(0, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(78, 0, 78, 58)
+region = Rect2(70, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(156, 0, 78, 58)
+region = Rect2(140, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(234, 0, 78, 58)
+region = Rect2(210, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(312, 0, 78, 58)
+region = Rect2(280, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(390, 0, 78, 58)
+region = Rect2(350, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(468, 0, 78, 58)
+region = Rect2(420, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
 atlas = ExtResource("3_y4r1p")
-region = Rect2(546, 0, 78, 58)
+region = Rect2(490, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
 atlas = ExtResource("4_d2wvv")
@@ -420,6 +420,7 @@ script = ExtResource("1_d2wvv")
 sprite_frames = SubResource("SpriteFrames_jej6c")
 animation = &"door_in"
 autoplay = "idle"
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
