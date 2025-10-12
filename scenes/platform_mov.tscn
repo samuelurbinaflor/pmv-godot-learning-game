@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csmeajwop8ay6"]
+
+[ext_resource type="Script" uid="uid://1biqmn2k25r0" path="res://scripts/platform_mov.gd" id="1_rnwoh"]
+[ext_resource type="Texture2D" uid="uid://cptvluo3ondhq" path="res://assets/map/tiles/Decorations.png" id="2_rnwoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b66pd"]
+size = Vector2(52, 11)
+
+[node name="platform_mov" type="AnimatableBody2D"]
+collision_layer = 8
+script = ExtResource("1_rnwoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rnwoh")
+region_enabled = true
+region_rect = Rect2(65, 102, 52, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b66pd")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bn40n2jejejjk"]
 
-[ext_resource type="Texture2D" uid="uid://bkn0wf0b2bxe2" path="res://assets/map/tiles/Decorations (32x32).png" id="1_ba0x2"]
+[ext_resource type="Texture2D" uid="uid://cptvluo3ondhq" path="res://assets/map/tiles/Decorations.png" id="1_4bk1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
 size = Vector2(96, 7)
@@ -8,7 +8,7 @@ size = Vector2(96, 7)
 [node name="platform_owt_large" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ba0x2")
+texture = ExtResource("1_4bk1t")
 region_enabled = true
 region_rect = Rect2(64, 32, 96, 7)
 

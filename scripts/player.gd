@@ -17,8 +17,13 @@ var can_take_damage := true
 var facing_left := false 
 var diamonds := 0
 
+enum PlayerState { NORMAL, ENTERING_DOOR }
+var state := PlayerState.NORMAL
+@onready var door: Area2D = $"./Door"
+var door_near := false
+
 # === REFS ===
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox: Area2D = $attack_hitbox
 @onready var game: Node2D = $".."
 @onready var hud = get_parent().get_node("CanvasLayer/HUD")
@@ -33,7 +38,11 @@ func _physics_process(delta: float) -> void:
 	if not alive:
 		velocity = Vector2.ZERO #stop movement
 		return
-	
+		
+	if state == PlayerState.ENTERING_DOOR:
+		move_and_slide()
+		return
+		
 	if is_attacking and is_on_floor():
 		velocity.x = 0  # frena solo si está en suelo
 	else:
@@ -43,12 +52,12 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	move_and_slide()
 	
-
-	if not is_attacking and can_take_damage:
-		if is_on_floor():
-			animated_sprite.play("idle" if velocity.x == 0 else "run")
-		else:
-			animated_sprite.play("jump" if velocity.y < 0 else "fall")
+	if state == PlayerState.NORMAL:
+		if not is_attacking and can_take_damage:
+			if is_on_floor():
+				player.play("idle" if velocity.x == 0 else "run")
+			else:
+				player.play("jump" if velocity.y < 0 else "fall")
 
 
 
@@ -57,7 +66,7 @@ func handle_movement() -> void:
 	var direction := Input.get_axis("m_left", "m_right")
 	
 	# Flip del sprite
-	animated_sprite.flip_h = direction < 0
+	player.flip_h = direction < 0
 	
 	# Movimiento
 	if direction != 0:
@@ -66,7 +75,7 @@ func handle_movement() -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	animated_sprite.flip_h = facing_left
+	player.flip_h = facing_left
 	flip_attack_hitbox()
 
 func apply_gravity(delta: float) -> void:
@@ -75,8 +84,11 @@ func apply_gravity(delta: float) -> void:
 
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_attacking:
-		velocity.y = JUMP_VELOCITY
-		animated_sprite.play("jump")
+		if door_near:
+			open_door()
+		else:
+			velocity.y = JUMP_VELOCITY
+			player.play("jump")
 
 
 
@@ -90,7 +102,7 @@ func attack() -> void:
 		return
 		
 	is_attacking = true
-	animated_sprite.play("attack")
+	player.play("attack")
 	
 	await get_tree().create_timer(ATTACK_DELAY).timeout
 	attack_hitbox.monitoring = true
@@ -99,8 +111,8 @@ func attack() -> void:
 	await get_tree().create_timer(ATTACK_DURATION).timeout
 	attack_hitbox.monitoring = false
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite.animation == "attack":
+func _on_player_2d_animation_finished() -> void:
+	if player.animation == "attack":
 		is_attacking = false
 
 func _on_attack_hitbox_area_entered(area: Area2D) -> void:
@@ -136,8 +148,8 @@ func hit(amount: int):
 	
 func die():
 	alive = false
-	animated_sprite.play("dead")
-	await animated_sprite.animation_finished
+	player.play("dead")
+	await player.animation_finished
 	get_tree().reload_current_scene()
 
 func blink_effect():
@@ -160,3 +172,14 @@ func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 			current_health += 1
 			hud.update_hearts(current_health)
 			area.queue_free()  # elimina el diamante de la escena
+
+# === DOOR ===
+func open_door():
+	state = PlayerState.ENTERING_DOOR
+	velocity = Vector2.ZERO
+	player.play("door_in")
+	await player.animation_finished
+	get_tree().change_scene_to_file("res://scenes/Victoria.tscn")  # o la escena que quieras
+
+	
+	

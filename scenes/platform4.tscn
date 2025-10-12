@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nymge6cxv3ka"]
 
-[ext_resource type="Texture2D" uid="uid://bkn0wf0b2bxe2" path="res://assets/map/tiles/Decorations (32x32).png" id="1_sslkr"]
+[ext_resource type="Texture2D" uid="uid://cptvluo3ondhq" path="res://assets/map/tiles/Decorations.png" id="1_sslkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5q2a"]
 size = Vector2(96, 15)
