@@ -6,6 +6,7 @@
 size = Vector2(66, 15)
 
 [node name="platform3" type="AnimatableBody2D"]
+collision_layer = 8
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_reqgw")

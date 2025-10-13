@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhv0hapd7alsg"]
+
+[ext_resource type="Script" uid="uid://do27gftdcuosa" path="res://scripts/spikes.gd" id="1_mx3yq"]
+[ext_resource type="Texture2D" uid="uid://b4vp8y21gkchk" path="res://assets/objects/Moving Spikes.png" id="2_hvnqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyr5e"]
+size = Vector2(36, 14)
+
+[node name="spikes_2" type="Node2D"]
+script = ExtResource("1_mx3yq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hvnqm")
+region_enabled = true
+region_rect = Rect2(195, 114, 36.137863, 14)
+
+[node name="hitbox" type="Area2D" parent="." groups=["enemies"]]
+position = Vector2(0, 22)
+collision_layer = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_nyr5e")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

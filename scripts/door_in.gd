@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var _player_near := false  # para saber si el jugador está cerca
-@export var wait_time: float = 4.0
+@export var wait_time: float = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if _player_near and Input.is_action_just_pressed("jump"):
-		abrir_puerta()
+		open_door()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -26,13 +26,11 @@ func _on_body_exited(body: Node2D) -> void:
 		body.door_near = false
 		
 		
-func abrir_puerta():
+func open_door():
 	if animated_sprite.animation == "Opening":
 		return  
 		
 	animated_sprite.play("Opening")
 	await animated_sprite.animation_finished
 	await get_tree().create_timer(wait_time).timeout		
-	
 	animated_sprite.play("Closing")
-	print("Fin")
