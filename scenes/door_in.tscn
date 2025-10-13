@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bmhgc6pki53vp"]
 
 [ext_resource type="Texture2D" uid="uid://3ttdp1lkc6px" path="res://assets/map/door/Closing (46x56).png" id="1_83dcw"]
-[ext_resource type="Script" uid="uid://b0vrn0mr5xtx" path="res://scripts/door.gd" id="1_la1wf"]
+[ext_resource type="Script" uid="uid://b0vrn0mr5xtx" path="res://scripts/door_in.gd" id="1_la1wf"]
 [ext_resource type="Texture2D" uid="uid://bkkv8hd4rjbw" path="res://assets/map/door/Idle.png" id="2_la1wf"]
 [ext_resource type="Texture2D" uid="uid://cf8b1dmwpkk5b" path="res://assets/map/door/Opening (46x56).png" id="3_18pbm"]
 
@@ -82,7 +82,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Door" type="Area2D"]
+[node name="door_in" type="Area2D"]
 collision_layer = 512
 script = ExtResource("1_la1wf")
 

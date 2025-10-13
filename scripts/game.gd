@@ -4,8 +4,13 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	var player = get_node("Player")
+	var door_out = get_node("door_out")
+	
+	player.visible = true
+	door_out.open_door()
+	await player.door_out()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

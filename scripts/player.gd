@@ -92,7 +92,7 @@ func apply_gravity(delta: float) -> void:
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_attacking:
 		if door_near:
-			open_door()
+			door_in()
 		else:
 			velocity.y = JUMP_VELOCITY
 			player.play("jump")
@@ -203,12 +203,17 @@ func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 			area.queue_free()  # elimina el diamante de la escena
 
 # === DOOR ===
-func open_door():
+func door_in():
 	state = PlayerState.ENTERING_DOOR
 	velocity = Vector2.ZERO
 	player.play("door_in")
 	await player.animation_finished
 	get_tree().change_scene_to_file("res://scenes/Victoria.tscn")  # o la escena que quieras
 
-	
+func door_out():
+	state = PlayerState.ENTERING_DOOR
+	velocity = Vector2.ZERO
+	player.play("door_out")
+	await player.animation_finished
+	state = PlayerState.NORMAL
 	
