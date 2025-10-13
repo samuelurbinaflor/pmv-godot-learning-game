@@ -707,7 +707,7 @@ position = Vector2(320, -49)
 position = Vector2(-19, -7)
 
 [node name="door_out" parent="." instance=ExtResource("12_kvuet")]
-position = Vector2(63, -28)
+position = Vector2(64, -28)
 
 [node name="door_in" parent="." instance=ExtResource("2_dinhu")]
 position = Vector2(262, 21)

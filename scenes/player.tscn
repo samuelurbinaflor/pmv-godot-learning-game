@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bve1rq2c76k4c"]
+[gd_scene load_steps=61 format=3 uid="uid://bve1rq2c76k4c"]
 
 [ext_resource type="Texture2D" uid="uid://dj6ixxih73mao" path="res://assets/king/Idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://chb7n1plwqqlq" path="res://scripts/player.gd" id="1_d2wvv"]
@@ -78,35 +78,31 @@ region = Rect2(490, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(0, 0, 78, 58)
+region = Rect2(0, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(78, 0, 78, 58)
+region = Rect2(49, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(156, 0, 78, 58)
+region = Rect2(98, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(234, 0, 78, 58)
+region = Rect2(147, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl8cc"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(312, 0, 78, 58)
+region = Rect2(196, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(390, 0, 78, 58)
+region = Rect2(245, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
 atlas = ExtResource("4_d2wvv")
-region = Rect2(468, 0, 78, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
-atlas = ExtResource("4_d2wvv")
-region = Rect2(546, 0, 78, 58)
+region = Rect2(294, 0, 49, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
 atlas = ExtResource("5_3v2ag")
@@ -294,9 +290,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_md1ol")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bj30b")
 }],
 "loop": false,
 "name": &"door_out",
@@ -405,7 +398,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 8.0
-height = 24.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
 radius = 13.0
@@ -418,7 +411,7 @@ script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"idle"
+animation = &"door_out"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
