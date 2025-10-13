@@ -24,6 +24,10 @@ region = Rect2(100, 0, 100, 58)
 atlas = ExtResource("1_qhqgy")
 region = Rect2(200, 0, 100, 58)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("6_jej6c")
+region = Rect2(0, 0, 49, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(0, 0, 78, 58)
@@ -107,10 +111,6 @@ region = Rect2(546, 0, 78, 58)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
 atlas = ExtResource("5_3v2ag")
 region = Rect2(0, 0, 49, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
-atlas = ExtResource("6_jej6c")
-region = Rect2(0, 0, 49, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
 atlas = ExtResource("7_f1ej7")
@@ -218,6 +218,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_a8ls1")
 }, {
 "duration": 1.0,
@@ -301,14 +309,6 @@ animations = [{
 "loop": true,
 "name": &"fall",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hax0n")
-}],
-"loop": true,
-"name": &"ground",
-"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -418,9 +418,8 @@ script = ExtResource("1_d2wvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"door_in"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://di5xn7urwn607"]
+[gd_scene load_steps=17 format=4 uid="uid://di5xn7urwn607"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cptvluo3ondhq" path="res://assets/map/tiles/Decorations.png" id="1_lnu2h"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dluurk0fnfm6y" path="res://scenes/killzone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b2mp1kntmwqqm" path="res://scenes/hud.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjonvfwlds7do" path="res://scenes/heart.tscn" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://0rn32o34xh8y" path="res://scenes/spikes.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_lnu2h")
@@ -706,3 +707,6 @@ position = Vector2(82, -15)
 
 [node name="diamond2" parent="Diamonds" instance=ExtResource("5_iywne")]
 position = Vector2(320, -49)
+
+[node name="Node2D" parent="." instance=ExtResource("12_dinhu")]
+position = Vector2(-16, -31)

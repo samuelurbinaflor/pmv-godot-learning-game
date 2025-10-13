@@ -10,10 +10,14 @@ const ATTACK_DURATION := 0.2
 # === VAR ===
 var current_health := MAX_HEALTH
 var alive := true
+
 var is_attacking := false
 var attack_position := Vector2(8,-2)
 var cooldown := 0.8 #invulnerability time
+
+var in_knockback := false
 var can_take_damage := true
+
 var facing_left := false 
 var diamonds := 0
 
@@ -35,6 +39,9 @@ func _ready():
 	collect_hitbox.monitoring = true
 
 func _physics_process(delta: float) -> void:
+	if in_knockback:
+		return
+
 	if not alive:
 		velocity = Vector2.ZERO #stop movement
 		return
@@ -110,10 +117,9 @@ func attack() -> void:
 	
 	await get_tree().create_timer(ATTACK_DURATION).timeout
 	attack_hitbox.monitoring = false
-
-func _on_player_2d_animation_finished() -> void:
-	if player.animation == "attack":
-		is_attacking = false
+	
+	await player.animation_finished
+	is_attacking = false
 
 func _on_attack_hitbox_area_entered(area: Area2D) -> void:
 	var enemy_node = area.get_parent()
@@ -141,11 +147,34 @@ func hit(amount: int):
 			await die()
 		else:
 			blink_effect()
+			apply_knockback(Vector2(1 if facing_left else -1, 0))
 			await get_tree().create_timer(cooldown).timeout
 			can_take_damage = true
 		
 
+func apply_knockback(dir: Vector2):
+	in_knockback = true
+	is_attacking = false
+	player.stop()
+	player.play("hit")
+
+	# Calcula dirección del empuje según hacia dónde mire
+	var knock_dir := Vector2(1 if facing_left else -1, 0)
+	var knockback_force := 300.0
+	var knockback_time := 0.2
 	
+	velocity = knock_dir * knockback_force
+	velocity.y = -150  # lo levanta un poco hacia arriba
+	
+	var timer := get_tree().create_timer(knockback_time)
+	while not timer.time_left == 0:
+		move_and_slide()
+		await get_tree().process_frame
+	
+	in_knockback = false
+	player.play("idle")
+
+
 func die():
 	alive = false
 	player.play("dead")
