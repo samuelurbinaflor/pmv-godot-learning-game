@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cxpkil7yk0g4l" path="res://assets/map/tiles/Terrain (32x32).png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bmhgc6pki53vp" path="res://scenes/door.tscn" id="2_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bve1rq2c76k4c" path="res://scenes/player.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://c5a6g5kmrp1w1" path="res://scenes/diamond.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://becg778vwfjx6" path="res://scenes/platform_owt_small.tscn" id="7_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://bs8jw2wy1bnbc" path="res://scenes/pig.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://c5a6g5kmrp1w1" path="res://scenes/collectables/diamond.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://becg778vwfjx6" path="res://scenes/platforms/platform_owt_small.tscn" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bs8jw2wy1bnbc" path="res://scenes/enemies/pig.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dluurk0fnfm6y" path="res://scenes/killzone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b2mp1kntmwqqm" path="res://scenes/hud.tscn" id="9_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://cjonvfwlds7do" path="res://scenes/heart.tscn" id="9_vtaks"]
-[ext_resource type="PackedScene" uid="uid://0rn32o34xh8y" path="res://scenes/spikes.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://cjonvfwlds7do" path="res://scenes/collectables/heart.tscn" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://0rn32o34xh8y" path="res://scenes/spikes/spikes_1.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_lnu2h")
@@ -667,7 +667,7 @@ tile_map_data = PackedByteArray("AADw/wMAAQAEAAIAAADv/wMAAQAXAAIAAADx/wMAAQAUAAI
 tile_set = SubResource("TileSet_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("3_lbhrr")]
-position = Vector2(37, -62)
+position = Vector2(30, -11)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -708,5 +708,5 @@ position = Vector2(82, -15)
 [node name="diamond2" parent="Diamonds" instance=ExtResource("5_iywne")]
 position = Vector2(320, -49)
 
-[node name="Node2D" parent="." instance=ExtResource("12_dinhu")]
-position = Vector2(-16, -31)
+[node name="spikes_1" parent="." instance=ExtResource("12_dinhu")]
+position = Vector2(-19, -7)
