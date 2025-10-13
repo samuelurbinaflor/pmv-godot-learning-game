@@ -208,7 +208,7 @@ func door_in():
 	velocity = Vector2.ZERO
 	player.play("door_in")
 	await player.animation_finished
-	get_tree().change_scene_to_file("res://scenes/Victoria.tscn")  # o la escena que quieras
+	get_tree().change_scene_to_file("res://scenes/Victoria.tscn")
 
 func door_out():
 	state = PlayerState.ENTERING_DOOR

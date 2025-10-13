@@ -20,11 +20,9 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var next_pos = position.move_toward(_target, speed * delta)
-	# Mover directamente la posición: AnimatableBody2D está hecho para esto
 	position = next_pos
 
 	if position.distance_to(_target) < 1.0:
-		# llegar al extremo: esperar y cambiar objetivo
 		_wait_timer = wait_time
 		_dir *= -1
 		_target = end_position if _dir == 1 else start_position
