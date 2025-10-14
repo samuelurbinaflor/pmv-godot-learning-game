@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://di5xn7urwn607"]
+[gd_scene load_steps=23 format=4 uid="uid://di5xn7urwn607"]
 
 [ext_resource type="Script" uid="uid://c1h3dehj0raif" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cptvluo3ondhq" path="res://assets/map/tiles/Decorations.png" id="1_lnu2h"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bve1rq2c76k4c" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c5a6g5kmrp1w1" path="res://scenes/collectables/diamond.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bs8jw2wy1bnbc" path="res://scenes/enemies/pig.tscn" id="7_gee14"]
-[ext_resource type="PackedScene" uid="uid://dluurk0fnfm6y" path="res://scenes/killzone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn63cx07fajcs" path="res://scenes/enemies/pig_tb.tscn" id="8_rysoc"]
 [ext_resource type="PackedScene" uid="uid://b2mp1kntmwqqm" path="res://scenes/hud.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://nymge6cxv3ka" path="res://scenes/platforms/platform4.tscn" id="9_ssvqc"]
@@ -679,9 +678,6 @@ limit_bottom = 359
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("9_0tnpc")]
-
-[node name="killzone" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(-21, 54)
 
 [node name="Enemies" type="Node" parent="."]
 

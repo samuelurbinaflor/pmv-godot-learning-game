@@ -1,8 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://bn63cx07fajcs"]
+[gd_scene load_steps=27 format=3 uid="uid://bn63cx07fajcs"]
 
+[ext_resource type="Script" uid="uid://cok0hrx68pfqg" path="res://scripts/pig_tb.gd" id="1_7cejl"]
 [ext_resource type="Texture2D" uid="uid://csmvbus56kx50" path="res://assets/pig/Pig Throwing a Bomb/Idle.png" id="1_7rfvb"]
 [ext_resource type="Texture2D" uid="uid://x3cfx5q7qqi8" path="res://assets/pig/Pig Throwing a Bomb/Throwing Bomb.png" id="2_7cejl"]
+[ext_resource type="Texture2D" uid="uid://dy5xbu6rfk57k" path="res://assets/pig/Pig Throwing a Bomb/Dead.png" id="2_orhlo"]
 [ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="2_wphw5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iohr6"]
+atlas = ExtResource("2_orhlo")
+region = Rect2(0, 0, 40, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a34n"]
+atlas = ExtResource("2_orhlo")
+region = Rect2(40, 0, 40, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mw1b"]
+atlas = ExtResource("2_orhlo")
+region = Rect2(80, 0, 40, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jluoq"]
+atlas = ExtResource("2_orhlo")
+region = Rect2(120, 0, 40, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cejl"]
 atlas = ExtResource("1_7rfvb")
@@ -68,6 +86,23 @@ region = Rect2(104, 0, 26, 26)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_iohr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a34n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mw1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jluoq")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7cejl")
 }, {
 "duration": 1.0,
@@ -125,13 +160,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4vc4"]
 size = Vector2(16, 16)
 
-[node name="pig_throwing_bomb" type="Node2D"]
+[node name="pig_throwing_bomb" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_7cejl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_coh1t")
-animation = &"throw"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.7610449
 
 [node name="hitbox" type="Area2D" parent="." groups=["enemies"]]
 collision_layer = 2
@@ -139,5 +174,7 @@ collision_mask = 5
 script = ExtResource("2_wphw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-2, 5)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_m4vc4")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dylkq5gel7eb1" path="res://assets/pig/Pig/Attack.png" id="1_ct3s0"]
 [ext_resource type="Texture2D" uid="uid://baw21jmffruuo" path="res://assets/pig/Pig/Idle.png" id="1_sq5kf"]
 [ext_resource type="Texture2D" uid="uid://d2glt870jj4v" path="res://assets/pig/Pig/Run.png" id="2_4a8uq"]
-[ext_resource type="Script" path="res://scripts/hitbox.gd" id="4_ct3s0"]
+[ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="4_ct3s0"]
 [ext_resource type="Texture2D" uid="uid://b70jni3gdc4yw" path="res://assets/pig/Pig/Dead.png" id="5_bnrkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1yuw"]
