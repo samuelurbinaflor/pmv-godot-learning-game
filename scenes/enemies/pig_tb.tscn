@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bn63cx07fajcs"]
+[gd_scene load_steps=29 format=3 uid="uid://bn63cx07fajcs"]
 
 [ext_resource type="Script" uid="uid://cok0hrx68pfqg" path="res://scripts/pig_tb.gd" id="1_7cejl"]
 [ext_resource type="Texture2D" uid="uid://csmvbus56kx50" path="res://assets/pig/Pig Throwing a Bomb/Idle.png" id="1_7rfvb"]
 [ext_resource type="Texture2D" uid="uid://x3cfx5q7qqi8" path="res://assets/pig/Pig Throwing a Bomb/Throwing Bomb.png" id="2_7cejl"]
 [ext_resource type="Texture2D" uid="uid://dy5xbu6rfk57k" path="res://assets/pig/Pig Throwing a Bomb/Dead.png" id="2_orhlo"]
+[ext_resource type="PackedScene" uid="uid://c5igor5pburpp" path="res://scenes/enemies/bomb.tscn" id="2_tegmx"]
 [ext_resource type="Script" uid="uid://cjro5nrnlp4m" path="res://scripts/hitbox.gd" id="2_wphw5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iohr6"]
@@ -152,21 +153,30 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v4q1x")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_orhlo"]
+radius = 144.00348
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4vc4"]
 size = Vector2(16, 16)
 
 [node name="pig_throwing_bomb" type="Node2D" groups=["enemies"]]
 script = ExtResource("1_7cejl")
+bomb_scene = ExtResource("2_tegmx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_coh1t")
 animation = &"dead"
 autoplay = "idle"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_orhlo")
 
 [node name="hitbox" type="Area2D" parent="." groups=["enemies"]]
 collision_layer = 2
@@ -174,7 +184,9 @@ collision_mask = 5
 script = ExtResource("2_wphw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(1, -1)
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_m4vc4")
+
+[node name="BombSpawn" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

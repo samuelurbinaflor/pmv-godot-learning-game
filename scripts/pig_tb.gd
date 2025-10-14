@@ -9,6 +9,15 @@ var alive := true
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $hitbox
 
+# === BOMB ===
+@export var bomb_scene: PackedScene
+@export var throw_cooldown := 2.0
+@onready var detection_area: Area2D = $DetectionArea
+@onready var bomb_spawn: Marker2D = $BombSpawn
+var player_in_range = false
+var player_ref: Node2D = null
+var can_throw = true
+
 func _process(delta: float) -> void:
 	return
 	
@@ -51,3 +60,62 @@ func blink_effect():
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if "player" in body.get_groups():
 		body.hit(1)
+
+
+# === BOMB ===
+func _ready() -> void:
+	detection_area.body_entered.connect(_on_body_entered)
+	detection_area.body_exited.connect(_on_body_exited)
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		player_in_range = true
+		player_ref = body
+		_try_throw_bomb()
+
+func _on_body_exited(body):
+	if body == player_ref:
+		player_in_range = false
+		player_ref = null
+
+func _try_throw_bomb():
+	if not can_throw or not player_in_range:
+		return
+
+	can_throw = false
+	animated_sprite.play("throw")  # tu animación de lanzar
+	await animated_sprite.animation_finished
+	_throw_bomb()
+	
+	animated_sprite.play("idle")
+	await get_tree().create_timer(throw_cooldown).timeout
+	can_throw = true
+
+func _throw_bomb():
+	if not player_ref:
+		return
+
+	var bomb = bomb_scene.instantiate()
+	get_tree().current_scene.add_child(bomb)
+	bomb.global_position = bomb_spawn.global_position
+
+	var start_pos = bomb_spawn.global_position
+	var target_pos = player_ref.global_position
+
+	var distance = target_pos.x - start_pos.x
+	var height_offset = start_pos.y - target_pos.y
+
+	var gravity = bomb.gravity
+	var speed = bomb.speed
+
+	# Velocidad horizontal (x) y tiempo estimado
+	var vx = sign(distance) * speed
+	var t = abs(distance) / speed
+
+	# Velocidad vertical inicial para alcanzar el objetivo
+	var vy = (-height_offset - 0.5 * gravity * t * t) / t
+	vy -= 250  # lanza un poco más hacia arriba
+
+	bomb.linear_velocity = Vector2(vx, vy)
+	
+	bomb.call_deferred("start_auto_explode_timer", 2)

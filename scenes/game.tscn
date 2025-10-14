@@ -700,7 +700,10 @@ position = Vector2(391, 231)
 position = Vector2(59, 258)
 
 [node name="pig_throwing_bomb4" parent="Enemies" instance=ExtResource("8_rysoc")]
-position = Vector2(175, 144)
+position = Vector2(162, 195)
+
+[node name="pig_throwing_bomb5" parent="Enemies" instance=ExtResource("8_rysoc")]
+position = Vector2(155, -12)
 
 [node name="Platforms" type="Node" parent="."]
 
