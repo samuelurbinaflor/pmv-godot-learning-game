@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Primer proyecto"
+config/name="pmv-godot-learning-game"
 run/main_scene="uid://di5xn7urwn607"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
