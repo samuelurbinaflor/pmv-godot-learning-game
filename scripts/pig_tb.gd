@@ -50,8 +50,9 @@ func die():
 	alive = false
 	hitbox.monitoring = false
 	animated_sprite.play("dead")
+	queue_free()
 
-	
+
 func blink_effect():
 	for i in range(3):
 		modulate = Color(1, 1, 1, 0.3) # transparente
@@ -78,7 +79,7 @@ func _try_throw_bomb():
 		return
 
 	can_throw = false
-	animated_sprite.play("throw")  # tu animación de lanzar
+	animated_sprite.play("throw") 
 	await animated_sprite.animation_finished
 	_throw_bomb()
 	
