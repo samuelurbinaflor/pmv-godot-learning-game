@@ -47,10 +47,8 @@ func explode():
 	# Explosion animation
 	animated_sprite_2d.play("explode")
 	explosion_area.monitoring = true
-	
-	
 
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	
 func start_auto_explode_timer(seconds: float):

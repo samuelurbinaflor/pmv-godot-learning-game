@@ -19,8 +19,11 @@ var player_ref: Node2D = null
 var can_throw = true
 
 func _process(delta: float) -> void:
-	if can_throw or player_in_range:
-		_try_throw_bomb()
+	if not alive:
+		return
+	
+	elif can_throw or player_in_range:
+			_try_throw_bomb()
 		
 func _ready() -> void:
 	return
@@ -50,7 +53,6 @@ func die():
 	alive = false
 	hitbox.monitoring = false
 	animated_sprite.play("dead")
-	queue_free()
 
 
 func blink_effect():
@@ -64,6 +66,8 @@ func blink_effect():
 # === TRHOW BOMB ===
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
+	if not alive:
+		return
 	if body.is_in_group("player"):
 		player_in_range = true
 		player_ref = body
@@ -117,5 +121,7 @@ func _throw_bomb():
 	bomb.call_deferred("start_auto_explode_timer", 2)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
+	if not alive:
+		return
 	if "player" in body.get_groups():
 		body.hit(1)

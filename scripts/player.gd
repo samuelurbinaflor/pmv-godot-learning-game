@@ -85,6 +85,7 @@ func handle_movement() -> void:
 	player.flip_h = facing_left
 	flip_attack_hitbox()
 
+
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -147,32 +148,22 @@ func hit(amount: int):
 			await die()
 		else:
 			blink_effect()
-			apply_knockback(Vector2(1 if facing_left else -1, 0))
+			apply_knockback()
 			await get_tree().create_timer(cooldown).timeout
 			can_take_damage = true
-		
+			
 
-func apply_knockback(dir: Vector2):
+func apply_knockback():
 	in_knockback = true
-	is_attacking = false
-	player.stop()
-	player.play("hit")
 
 	# Calcula dirección del empuje según hacia dónde mire
 	var knock_dir := Vector2(1 if facing_left else -1, 0)
 	var knockback_force := 300.0
-	var knockback_time := 0.2
 	
 	velocity = knock_dir * knockback_force
 	velocity.y = -150  # lo levanta un poco hacia arriba
 	
-	var timer := get_tree().create_timer(knockback_time)
-	while not timer.time_left == 0:
-		move_and_slide()
-		await get_tree().process_frame
-	
 	in_knockback = false
-	player.play("idle")
 
 
 func die():
