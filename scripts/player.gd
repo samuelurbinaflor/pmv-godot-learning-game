@@ -137,12 +137,11 @@ func flip_attack_hitbox():
 func hit(amount: int):
 	if not alive or not can_take_damage:
 		return
-		
+	
 	else:
 		current_health -= amount
 		hud.update_hearts(current_health)
 		can_take_damage = false
-		
 		
 		if current_health <= 0:
 			await die()
@@ -151,7 +150,6 @@ func hit(amount: int):
 			apply_knockback()
 			await get_tree().create_timer(cooldown).timeout
 			can_take_damage = true
-			
 
 func apply_knockback():
 	in_knockback = true

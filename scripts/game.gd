@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var game_over_scene: Control = $CanvasLayer/GameOver
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
+var hidden_tiles: Array[Vector2i] = []  # guarda las celdas borradas
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +25,21 @@ func game_over():
 
 
 func _on_hidden_zone_body_entered(body: Node2D) -> void:
-	print(tile_map_layer.tile_set)
+	if body.name != "Player":
+		return
 
+	hidden_tiles.clear()
+
+	for cell in tile_map_layer.get_used_cells():
+		var source_id = tile_map_layer.get_cell_source_id(cell)
+		if source_id == 2:  # Terrain2.png
+			hidden_tiles.append(cell)
+			tile_map_layer.set_cell(cell, -1)
+
+#No funciona
 func _on_hidden_zone_body_exited(body: Node2D) -> void:
-	if tile_map_layer.z_index == 7:
-		tile_map_layer.visible = true
+	if body.name != "Player":
+		return
+
+	for cell in hidden_tiles:
+		tile_map_layer.set_cell(cell, 2, Vector2i(0, 0))
