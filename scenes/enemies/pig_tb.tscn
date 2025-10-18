@@ -189,4 +189,6 @@ shape = SubResource("RectangleShape2D_m4vc4")
 
 [node name="BombSpawn" type="Marker2D" parent="."]
 
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

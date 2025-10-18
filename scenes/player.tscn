@@ -414,7 +414,7 @@ sprite_frames = SubResource("SpriteFrames_jej6c")
 animation = &"door_out"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_y4r1p")
 

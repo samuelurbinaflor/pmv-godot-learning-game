@@ -110,9 +110,6 @@ radius = 24.020824
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_jx5m5")
-speed = null
-gravity = null
-damage = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3swkl")
@@ -131,7 +128,7 @@ shape = SubResource("CircleShape2D_gix0d")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 position = Vector2(0, 1)
@@ -139,3 +136,5 @@ shape = SubResource("CircleShape2D_o4q78")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="CollisionDetector" to="." method="_on_collision_detector_body_shape_entered"]
+[connection signal="body_shape_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_shape_entered"]

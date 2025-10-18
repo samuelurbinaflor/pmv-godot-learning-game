@@ -19,8 +19,11 @@ var player_ref: Node2D = null
 var can_throw = true
 
 func _process(delta: float) -> void:
+	if can_throw or player_in_range:
+		_try_throw_bomb()
+		
+func _ready() -> void:
 	return
-	
 
 # === DAMAGE ===
 func hit(amount: int, knockback_dir := Vector2.ZERO):
@@ -57,23 +60,15 @@ func blink_effect():
 		await get_tree().create_timer(0.1).timeout
 
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if "player" in body.get_groups():
-		body.hit(1)
+# === TRHOW BOMB ===
 
-
-# === BOMB ===
-func _ready() -> void:
-	detection_area.body_entered.connect(_on_body_entered)
-	detection_area.body_exited.connect(_on_body_exited)
-
-func _on_body_entered(body):
+func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true
 		player_ref = body
 		_try_throw_bomb()
 
-func _on_body_exited(body):
+func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == player_ref:
 		player_in_range = false
 		player_ref = null
@@ -119,3 +114,7 @@ func _throw_bomb():
 	bomb.linear_velocity = Vector2(vx, vy)
 	
 	bomb.call_deferred("start_auto_explode_timer", 2)
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if "player" in body.get_groups():
+		body.hit(1)

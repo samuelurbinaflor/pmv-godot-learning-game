@@ -13,8 +13,6 @@ extends RigidBody2D
 var exploded := false
 
 func _ready():
-	collision_detector.body_entered.connect(_on_body_entered)
-	collision_detector.body_shape_entered.connect(_on_body_shape_entered)
 	explosion_area.monitoring = false
 
 func _physics_process(delta):
@@ -22,16 +20,16 @@ func _physics_process(delta):
 		return
 	linear_velocity.y += gravity * delta
 
-func _on_body_entered(body):
-	if exploded:
-		return
-	explode()
 
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	if exploded:
-		return
-	explode()
+func _on_collision_detector_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.is_in_group("player") and body.has_method("hit"):
+		explode()
+		body.hit(damage)
 
+func _on_explosion_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.is_in_group("player") and body.has_method("hit"):
+		explode()
+		body.hit(damage)
 
 func explode():
 	if exploded:
@@ -49,11 +47,8 @@ func explode():
 	# Explosion animation
 	animated_sprite_2d.play("explode")
 	explosion_area.monitoring = true
-
-	# Area damage
-	for body in explosion_area.get_overlapping_bodies():
-		if body.is_in_group("player") and body.has_method("hit"):
-			body.hit(damage)
+	
+	
 
 	await get_tree().create_timer(1).timeout
 	queue_free()
