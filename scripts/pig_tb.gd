@@ -79,20 +79,24 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_ref = null
 
 func _try_throw_bomb():
+	if not alive:
+		return
+		
 	if not can_throw or not player_in_range:
 		return
 
 	can_throw = false
 	animated_sprite.play("throw") 
-	await animated_sprite.animation_finished
+	await get_tree().create_timer(0.7).timeout
 	_throw_bomb()
+	await animated_sprite.animation_finished
 	
 	animated_sprite.play("idle")
 	await get_tree().create_timer(throw_cooldown).timeout
 	can_throw = true
 
 func _throw_bomb():
-	if not player_ref:
+	if not player_ref or not alive:
 		return
 
 	var bomb = bomb_scene.instantiate()

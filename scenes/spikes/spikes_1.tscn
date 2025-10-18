@@ -23,4 +23,3 @@ position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_nyr5e")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

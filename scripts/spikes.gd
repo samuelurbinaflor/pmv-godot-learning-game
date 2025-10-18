@@ -1,18 +1,18 @@
 extends Node2D
+@onready var hitbox: Area2D = $hitbox
 
 var player: CharacterBody2D = null
 
 func _process(delta: float) -> void:
 	if player:
-		player.hit(1)  # Solo pega si el player sigue dentro
-		player = null
+		if not hitbox.get_overlapping_bodies().has(player): #body exited
+			player = null
+		else:
+			player.hit(1)
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if "player" in body.get_groups():
-		player = body  # Guardamos al player que está dentro
+		player = body  
 
-
-func _on_hitbox_body_exited(body: Node2D) -> void:
-	if player == body:
-		player = null  # Lo borramos al salir
+#El body exited no funciona
