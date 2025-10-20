@@ -5,6 +5,8 @@ const MAX_HEALTH = 3
 
 var current_health := MAX_HEALTH
 var alive := true
+@export var has_key := false
+@export var key_scene: PackedScene
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $hitbox
@@ -53,6 +55,15 @@ func die():
 	alive = false
 	hitbox.monitoring = false
 	animated_sprite.play("dead")
+	await  animated_sprite.animation_finished
+	
+	if has_key:
+		spawn_key()
+		
+func spawn_key():
+	var key_instance = key_scene.instantiate()
+	get_tree().current_scene.add_child(key_instance)
+	key_instance.global_position = global_position
 
 
 func blink_effect():

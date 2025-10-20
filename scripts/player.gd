@@ -20,6 +20,7 @@ var can_take_damage := true
 
 var facing_left := false 
 var diamonds := 0
+var has_key := false
 
 enum PlayerState { NORMAL, ENTERING_DOOR }
 var state := PlayerState.NORMAL
@@ -178,7 +179,7 @@ func blink_effect():
 		modulate = Color(1, 1, 1, 1) # visible
 		await get_tree().create_timer(0.1).timeout
 		
-# === DIAMONDS === 
+# === COLLECTABLES === 
 func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("diamonds"):
 		diamonds += 1
@@ -190,14 +191,24 @@ func _on_collect_hitbox_area_entered(area: Area2D) -> void:
 			current_health += 1
 			hud.update_hearts(current_health)
 			area.queue_free()  # elimina el diamante de la escena
+	
+	if area.is_in_group("key"):
+		print("key collected")
+		has_key = true
+		area.queue_free()
+		
 
 # === DOOR ===
 func door_in():
-	state = PlayerState.ENTERING_DOOR
-	velocity = Vector2.ZERO
-	player.play("door_in")
-	await player.animation_finished
-	get_tree().change_scene_to_file("res://scenes/Victoria.tscn")
+	if not has_key:
+		return
+		
+	if has_key:
+		state = PlayerState.ENTERING_DOOR
+		velocity = Vector2.ZERO
+		player.play("door_in")
+		await player.animation_finished
+
 
 func door_out():
 	state = PlayerState.ENTERING_DOOR

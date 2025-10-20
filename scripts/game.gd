@@ -3,6 +3,7 @@ extends Node2D
 @onready var game_over_scene: Control = $CanvasLayer/GameOver
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 var hidden_tiles: Array[Vector2i] = []  # guarda las celdas borradas
+@onready var pig_throwing_bomb_3: Node2D = $Enemies/pig_throwing_bomb3
 
 
 # Called when the node enters the scene tree for the first time.

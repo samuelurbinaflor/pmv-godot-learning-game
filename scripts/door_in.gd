@@ -3,6 +3,7 @@ extends Area2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var _player_near := false  # para saber si el jugador está cerca
 @export var wait_time: float = 1.0
+@onready var player: CharacterBody2D = $"../Player"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,10 +28,14 @@ func _on_body_exited(body: Node2D) -> void:
 		
 		
 func open_door():
-	if animated_sprite.animation == "Opening":
-		return  
-		
-	animated_sprite.play("Opening")
-	await animated_sprite.animation_finished
-	await get_tree().create_timer(wait_time).timeout		
-	animated_sprite.play("Closing")
+	if player.has_key:		
+		if animated_sprite.animation == "Opening":
+			return  
+			
+		animated_sprite.play("Opening")
+		await animated_sprite.animation_finished
+		await get_tree().create_timer(wait_time).timeout		
+		animated_sprite.play("Closing")
+		await animated_sprite.animation_finished
+		get_tree().paused = true
+		get_tree().change_scene_to_file("res://scenes/victory.tscn")
